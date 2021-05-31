@@ -2,7 +2,7 @@ import libnum
 import Crypto.Util.number
 from random import randint
 
-bits = 8
+bits = 16
 print("Số bit yêu cầu của bài là:", bits)
 # Chọn p,a,b
 p = Crypto.Util.number.getPrime(bits, randfunc=Crypto.Random.get_random_bytes)
