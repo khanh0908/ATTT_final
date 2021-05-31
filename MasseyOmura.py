@@ -45,4 +45,4 @@ mB1 = libnum.invmod(mB,N)
 M4=curve.power(M3,mB1)
 print("\nBên B nhận M3 tính mB^-1 thuộc ZN. Tính M4=(mB^-1)M3 rồi gửi cho bên B: \nM3 =",M3,"\nmB^-1 =",mB1,"\nM4 =",M4,"\nĐiểm M ban đầu:",M)
 if M == M4:
-    print("Giải mã thành công...!")
+    print("Giải mã thành công....!")
