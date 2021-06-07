@@ -12,7 +12,7 @@ print("\nThu được đường cong y^2 = x^3 +",a,"x +",b,"mod(",p,")")
 #Tạo đường cong bằng hàm ecc.Curve
 curve = libnum.ecc.Curve(a, b, p)
 
-# Hiển thị 100 điểm đầu tiên
+# Hiển thị các điểm có hoành độ nằm trong khoảng từ 1 đến 100
 P100=curve.find_points_in_range(1,100)
 print(P100)
 
