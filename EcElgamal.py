@@ -1,7 +1,8 @@
 import libnum
 import Crypto.Util.number
 from random import randint
-bits = 64
+#Crypto.Util.number.getPrime là hàm tạo số nguyên tố ngẫu nhiên với số bits theo yêu cầu
+bits = 160
 print("Số bit yêu cầu của bài là:",bits)
 # Chọn p,a,b
 p = Crypto.Util.number.getPrime(bits, randfunc=Crypto.Random.get_random_bytes)
@@ -9,6 +10,7 @@ p = Crypto.Util.number.getPrime(bits, randfunc=Crypto.Random.get_random_bytes)
 a = 50
 b = 90
 print("\nThu được đường cong y^2 = x^3 +",a,"x +",b,"mod(",p,")")
+#Tạo đường cong bằng hàm ecc.Curve
 curve = libnum.ecc.Curve(a, b, p)
 
 # Hiển thị 100 điểm đầu tiên
@@ -47,6 +49,8 @@ MD1 = curve.power(M1, s)
 # Tính điểm đối của điêm MD1
 MD1_2 = (MD1[0], -MD1[1])
 decipher = curve.add(M2, MD1_2)
-print("\nBên A giải mã thu được điểm bằng điểm M = ",decipher)
+print("\nBên A giải mã thu được điểm bằng điểm M ban đầu và bằng ",decipher)
+if M == decipher:
+    print("Giải mã thành công....!")
 
 

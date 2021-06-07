@@ -3,11 +3,11 @@ from math import gcd as bltin_gcd
 from random import randint
 from Crypto.Util.number import bytes_to_long, long_to_bytes
 import sys
-
+#Crypto.Util.number.getPrime là hàm tạo số nguyên tố ngẫu nhiên với số bits theo yêu cầu
+#Crypto.Util.number.inverse hàm tính nghịch đảo modunlo
+#bytes_to_long chuyển đổi bytes thành số nguyên dài
+#long_to_bytes ngược lại
 bits = 512
-
-if (len(sys.argv)>1):
-        bits=int(sys.argv[1])
 
 print ("Số lượng bit ",bits)
 # Số n có độ dài 512 bits mà N=q.p nên sẽ chọn q và p có độ dài 256 bits

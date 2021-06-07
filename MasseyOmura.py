@@ -1,7 +1,7 @@
 import libnum
 import Crypto.Util.number
 from random import randint
-
+#Crypto.Util.number.getPrime là hàm tạo số nguyên tố ngẫu nhiên với số bits theo yêu cầu
 bits = 16
 print("Số bit yêu cầu của bài là:", bits)
 # Chọn p,a,b
@@ -9,6 +9,7 @@ p = Crypto.Util.number.getPrime(bits, randfunc=Crypto.Random.get_random_bytes)
 a = 50
 b = 90
 print("\nThu được đường cong y^2 = x^3 +",a,"x +",b,"mod(",p,")")
+#Tạo đường cong bằng hàm ecc.Curve
 curve = libnum.ecc.Curve(a, b, p)
 
 # Hiển thị 100 điểm đầu tiên
@@ -37,7 +38,7 @@ mB = 56843 #Chọn mB là số nguyên tố
 M2=curve.power(M1,mB)
 print("\nBên B nhận M1 chọn mB thỏa mãn gcd(mB,N) = 1. Tính M2=(mB)M1 rồi gửi cho bên A: \nM1 =",M1,"\nmB =",mB,"\nM2 =",M2)
 # Bên A nhận M2 tính mA^-1 thuộc ZN. Tính M3=(mA^-1)M2 rồi gửi cho bên B
-mA1 = libnum.invmod(mA,N)
+mA1 = libnum.invmod(mA,N) #Một cách khác để tính nghịch đảo modulo là dùng libnum.invmod()
 M3=curve.power(M2,mA1)
 print("\nBên A nhận M2 tính mA^-1 thuộc ZN. Tính M3=(mA^-1)M2 rồi gửi cho bên B: \nM2 =",M2,"\nmA^-1 =",mA1,"\nM3 =",M3)
 # Bên B nhận M3 tính mB^-1 thuộc ZN. Tính M4=(mb^-1)M3 lúc này M4=M1
